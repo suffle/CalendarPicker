@@ -14,16 +14,14 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
-
-var {
+import {
   WEEKDAYS,
   MONTHS,
   MAX_ROWS,
   MAX_COLUMNS,
   getDaysInMonth
-} = require('./Util');
-
-var makeStyles = require('./makeStyles');
+} from './Util';
+import makeStyles from'./makeStyles';
 
 //The styles in makeStyles are intially scaled to this width
 const IPHONE6_WIDTH = 375;
@@ -87,7 +85,7 @@ var Day = React.createClass({
             </Text>
           </View>
         );
-      } 
+      }
       else {
         return (
           <View style={styles.dayWrapper}>
@@ -388,14 +386,17 @@ var CalendarPicker = React.createClass({
     };
   },
   getInitialState() {
-    if (this.props.scaleFactor !== undefined) {
-      styles = StyleSheet.create(makeStyles(this.props.scaleFactor));
+    var props = this.props;
+
+    if (props.scaleFactor !== undefined) {
+      styles = StyleSheet.create(makeStyles(props.scaleFactor));
     }
+    //console.log('>>> this.props.selectedDate', props.selectedDate);
     return {
-      date: this.props.selectedDate,
-      day: this.props.selectedDate.getDate(),
-      month: this.props.selectedDate.getMonth(),
-      year: this.props.selectedDate.getFullYear(),
+      date: props.selectedDate,
+      day: props.selectedDate.getDate(),
+      month: props.selectedDate.getMonth(),
+      year: props.selectedDate.getFullYear(),
       selectedDay: []
     };
   },

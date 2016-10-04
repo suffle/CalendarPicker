@@ -5,7 +5,7 @@
  */
 'use strict';
 
-import React from 'react';
+import React, { Component } from 'react';
 import {
   AppRegistry,
   Dimensions,
@@ -14,22 +14,23 @@ import {
   View
 } from 'react-native';
 
-var CalendarPicker = require('./CalendarPicker/CalendarPicker'),
-  CalendarPicker2;
+import CalendarPicker from './CalendarPicker/CalendarPicker';
 
-
-CalendarPicker2 = React.createClass({
-  getInitialState: function() {
-    return {
+class CalendarPicker2 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       date: new Date()
     };
-  },
 
-  onDateChange: function(date) {
+    this.onDateChange = this.onDateChange.bind(this);
+  }
+
+  onDateChange(date) {
     this.setState({ date: date });
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <View style={styles.container}>
 
@@ -49,10 +50,9 @@ CalendarPicker2 = React.createClass({
 
         <Text style={styles.selectedDate}> Date: { this.state.date.toString() } </Text>
       </View>
-
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   container: {

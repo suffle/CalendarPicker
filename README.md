@@ -38,7 +38,7 @@ CalendarPicker2 = React.createClass({
     return (
       <View style={styles.container}>
 
-        <CalendarPicker 
+        <CalendarPicker
           selectedDate={this.state.date}
           onDateChange={this.onDateChange}
           screenWidth={Dimensions.get('window').width}
@@ -59,6 +59,58 @@ const styles = StyleSheet.create({
     color: '#000',
   }
 });
+
+```
+## Example Using ES6 Syntax
+```js
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  Dimensions,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+
+import CalendarPicker from 'react-native-calendar-picker';
+
+class CalendarPicker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date()
+    }
+
+    this.onDateChange = this.onDateChange.bind(this);
+  }
+
+  onDateChange(date) {
+    this.setState({ date: date });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+
+      <CalendarPicker
+          selectedDate={this.state.date}
+          onDateChange={this.onDateChange}
+          screenWidth={Dimensions.get('window').width}
+          weekdays = {['Mon', 'Tue', 'Wed', 'Th', 'Fri', 'Sat', 'Sun']}
+          months = {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']}
+          nextTitle={'Next'}
+          previousTitle={'Previous'}
+          startFromMonday={true}
+          selectedDayColor={'#E12518'}
+          textStyle={styles.calendarTextStyle}
+          selectedDayTextColor={'#FFFFFF'}
+                style={{}} />
+
+        <Text style={styles.selectedDate}> Date: { this.state.date.toString() } </Text>
+      </View>
+    )
+  }
+}
 ```
 ## CalendarPicker props
 | Prop | Type | Description |

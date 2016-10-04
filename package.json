@@ -52,13 +52,19 @@
   "_resolved": "https://registry.npmjs.org/react-native-calendar-picker/-/react-native-calendar-picker-1.0.1.tgz",
   "devDependencies": {
     "babel-eslint": "^6.0.4",
+    "babel-jest": "^16.0.0",
+    "babel-preset-react-native": "^1.9.0",
     "eslint": "^2.9.0",
     "eslint-plugin-react": "^5.1.1",
+    "jest": "^16.0.0",
     "jest-cli": "^11.0.0",
-    "react": "^0.14.8",
-    "react-native": "^0.25.1"
+    "jest-react-native": "^16.0.0",
+    "react": "^15.3.2",
+    "react-native": "^0.34.1",
+    "react-test-renderer": "^15.3.2"
   },
   "jest": {
+    "preset": "jest-react-native",
     "scriptPreprocessor": "node_modules/react-native/jestSupport/preprocessor.js",
     "setupEnvScriptFile": "node_modules/react-native/jestSupport/env.js",
     "testPathIgnorePatterns": [
