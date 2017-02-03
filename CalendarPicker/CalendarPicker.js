@@ -49,7 +49,7 @@ var Day = React.createClass({
   },
   getDefaultProps () {
     return {
-      //onDayChange () {}
+      onDayChange () {}
     };
   },
 
@@ -140,18 +140,23 @@ var Days = React.createClass({
       year = this.props.year,
       currentDay = 0,
       thisMonthFirstDay = this.props.startFromMonday ? new Date(year, month, 0) : new Date(year, month, 1),
-      slotsAccumulator = 0;
+      slotsAccumulator = 0,
+      selectedDay = this.props.date.getDate(),
+      isSelectedMonth = month === this.props.date.getMonth(),
+      isSelectedYear = year === this.props.date.getFullYear(),
+      daysInMonth = getDaysInMonth(month, year),
+      monthFirstDay = thisMonthFirstDay.getDay();
 
     for (i = 0; i < MAX_ROWS; i++ ) { // Week rows
       columns = [];
 
       for (j = 0; j < MAX_COLUMNS; j++) { // Day columns
-        if (slotsAccumulator >= thisMonthFirstDay.getDay()) {
-          if (currentDay < getDaysInMonth(month, year)) {
+        if (slotsAccumulator >= monthFirstDay) {
+          if (currentDay < daysInMonth) {
             columns.push(<Day
                       key={j}
-                      day={currentDay+1}
-                      selected={this.props.day === this.props.date.getDayOfMonth() && this.props.month === this.props.date.getMonth() && this.props.year === this.props.date.getFullYear()}
+                      day={currentDay + 1}
+                      selected={currentDay + 1 === selectedDay && isSelectedMonth && isSelectedYear}
                       date={new Date(year, month, currentDay + 1)}
                       maxDate={this.props.maxDate}
                       minDate={this.props.minDate}
