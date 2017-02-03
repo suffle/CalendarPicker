@@ -118,22 +118,6 @@ var Days = React.createClass({
     selectedDayTextColor: React.PropTypes.string,
     textStyle: Text.propTypes.style
   },
-  getInitialState() {
-    return {
-      //selectedStates: []
-    };
-  },
-
-  componentDidMount() {
-    //this.updateSelectedStates(this.props.date.getDate());
-  },
-
-  // Trigger date change if new props are provided.
-  // Typically, when selectedDate is changed programmatically.
-  //
-  componentWillReceiveProps: function(newProps) {
-    //this.updateSelectedStates(newProps.date.getDate());
-  },
 
   onPressDay(day) {
     this.props.onDayChange({day: day});
