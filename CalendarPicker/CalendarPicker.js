@@ -151,7 +151,7 @@ var Days = React.createClass({
             columns.push(<Day
                       key={j}
                       day={currentDay+1}
-                      selected={this.props.day === currentDay+1}
+                      selected={this.props.day === this.props.date.getDayOfMonth() && this.props.month === this.props.date.getMonth() && this.props.year === this.props.date.getFullYear()}
                       date={new Date(year, month, currentDay + 1)}
                       maxDate={this.props.maxDate}
                       minDate={this.props.minDate}
