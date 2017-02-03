@@ -398,15 +398,15 @@ var CalendarPicker = React.createClass({
   },
 
   onMonthChange(month) {
-    this.setState({month: month}, () => { this.onDateChange(); });
+    this.setState({month: month});
   },
 
   getNextYear(){
-    this.setState({year: this.state.year + 1}, () => { this.onDateChange(); });
+    this.setState({year: this.state.year + 1});
   },
 
   getPrevYear() {
-    this.setState({year: this.state.year - 1}, () => { this.onDateChange(); });
+    this.setState({year: this.state.year - 1});
   },
 
   onDateChange() {
@@ -423,7 +423,7 @@ var CalendarPicker = React.createClass({
 
   render() {
     return (
-      <View style={styles.calendar}>
+      <View style={[styles.calendar, this.props.style]}>
         <HeaderControls
           maxDate={this.props.maxDate}
           minDate={this.props.minDate}
