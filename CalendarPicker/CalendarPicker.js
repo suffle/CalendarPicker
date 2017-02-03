@@ -60,6 +60,10 @@ var Day = React.createClass({
     return null;
   },
 
+  changeDay() {
+    this.props.onDayChange(this.props.day)
+  }
+
   render() {
     var textStyle = this.props.textStyle;
     if (this.props.selected) {
@@ -93,7 +97,7 @@ var Day = React.createClass({
           <View style={styles.dayWrapper}>
             <TouchableOpacity
             style={styles.dayButton}
-            onPress={() => this.props.onDayChange(this.props.day) }>
+            onPress={this.changeDay}>
               <Text style={[styles.dayLabel, textStyle]}>
                 {this.props.day}
               </Text>
