@@ -49,7 +49,7 @@ var Day = React.createClass({
   },
   getDefaultProps () {
     return {
-      onDayChange () {}
+      //onDayChange () {}
     };
   },
 
@@ -74,7 +74,7 @@ var Day = React.createClass({
           <View style={[styles.dayButtonSelected, selectedDayColorStyle]}>
             <TouchableOpacity
               style={styles.dayButton}
-              onPress={() => this.props.onDayChange(this.props.day) }>
+              onPress={this.changeDay}>
               <Text style={[styles.dayLabel, textStyle, selectedDayTextColorStyle]}>
                 {this.props.day}
               </Text>
