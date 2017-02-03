@@ -62,7 +62,7 @@ var Day = React.createClass({
 
   changeDay() {
     this.props.onDayChange(this.props.day)
-  }
+  },
 
   render() {
     var textStyle = this.props.textStyle;
